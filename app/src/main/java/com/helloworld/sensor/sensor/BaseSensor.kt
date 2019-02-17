@@ -7,12 +7,10 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.util.Log
-import io.reactivex.subjects.BehaviorSubject
 
-class BaseSensor (activity: Activity, sensorType: Int) : SensorEventListener{
+open class BaseSensor (activity: Activity, sensorType: Int) : SensorEventListener{
 	private val sensorManager = activity.getSystemService(Context.SENSOR_SERVICE) as SensorManager
 	private var sensor: Sensor? = null
-	private val value = BehaviorSubject.createDefault(0.0f)
 	private lateinit var callback: (Float)->Unit
 
 	init {
@@ -30,19 +28,13 @@ class BaseSensor (activity: Activity, sensorType: Int) : SensorEventListener{
 	}
 
 	override fun onSensorChanged(event: SensorEvent?) {
-		value.onNext(event!!.values[0])
+		callback(event!!.values[0])
 	}
 
 	fun startListen() {
 		sensor.also {
 			sensorManager.registerListener(this, it, SensorManager.SENSOR_DELAY_NORMAL)
 		}
-		value.subscribe ({
-			Log.d(this.javaClass.name, "Success: $it")
-			callback(it)
-		}, {
-			Log.e(this.javaClass.name, "Error: ${it.message}")
-		})
 	}
 
 	fun setListenCallBack(callback: (Float)->Unit) {
@@ -51,7 +43,6 @@ class BaseSensor (activity: Activity, sensorType: Int) : SensorEventListener{
 
 	fun cancelListen() {
 		sensorManager.unregisterListener(this)
-		value.subscribe().dispose()
 	}
 
 }

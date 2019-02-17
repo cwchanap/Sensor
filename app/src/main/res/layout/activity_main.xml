@@ -19,15 +19,60 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
+            android:id="@+id/magneticField"
+            android:layout_width="240dp"
+            android:layout_height="59dp"
+            android:layout_marginLeft="84dp"
+            android:layout_marginTop="256dp"
+            android:text="@string/magneticField"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:textAlignment="center" android:textSize="18sp"/>
+
+    <TextView
+            android:id="@+id/address"
+            android:layout_width="271dp"
+            android:layout_height="41dp"
+            android:layout_marginLeft="68dp"
+            android:layout_marginTop="400dp"
+            android:text="@string/address"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:textAlignment="center" android:textSize="18sp"/>
+    <TextView
+            android:id="@+id/altitude"
+            android:layout_width="271dp"
+            android:layout_height="41dp"
+            android:layout_marginLeft="68dp"
+            android:layout_marginTop="328dp"
+            android:text="@string/altitude"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:textAlignment="center" android:textSize="18sp"/>
+    <TextView
+            android:id="@+id/humidity"
+            android:layout_width="177dp"
+            android:layout_height="41dp"
+            android:layout_marginLeft="116dp"
+            android:layout_marginTop="204dp"
+            android:text="@string/humidity"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:textAlignment="center" android:textSize="18sp"/>
+    <TextView
+            android:id="@+id/temperature"
+            android:layout_width="177dp"
+            android:layout_height="41dp"
+            android:layout_marginLeft="116dp"
+            android:layout_marginTop="152dp"
+            android:text="@string/temperature"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:textAlignment="center" android:textSize="18sp"/>
+    <TextView
             android:id="@+id/pressure"
             android:layout_width="177dp"
             android:layout_height="41dp"
             android:layout_marginLeft="116dp"
-            android:layout_marginTop="276dp"
+            android:layout_marginTop="100dp"
             android:text="@string/pressure"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" android:textAlignment="center" android:textSize="18sp"/>
-
     <android.support.design.widget.BottomNavigationView
             android:id="@+id/navigation"
             android:layout_width="0dp"
